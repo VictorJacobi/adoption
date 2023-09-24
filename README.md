@@ -6,7 +6,7 @@ Adoption is a Flutter package that makes it easy to perform navigation, and also
 ## Installation
 To use Adoption in your Flutter project, add adoption as a dependency in your pubspec.yaml file.
 
-```py
+```yaml
 dependencies:
   get_it: ^7.2.0
   adoption:
@@ -19,7 +19,7 @@ To use Adoption, you will need a service locator (either get_it or riverpod) in 
 
 Here is an example of how to use Adoption:
 
-```js
+```dart
 import 'package:adoption/adoption.dart';
 import 'package:get_it/get_it.dart';
 
@@ -33,7 +33,7 @@ locator.registerLazySingleton(() => DialogService(navigatorKey: locator<Navigati
 }
 ```
 The next step is to set up your bottom sheet and dialog ui like:
-```js
+```dart
 void setupBottomSheetUi() {
   final bottomSheetService = locator<BottomSheetService>();
   final builders = {
@@ -58,12 +58,11 @@ enum BottomSheetType{
 
 ```
 After you have registered all of the services as a lazy singleton, you then call the function in the main file like this:
-```js
+```dart
 void main() async{
   setupLocator();
   setupBottomSheetUi();
   setupDialogUi();
-  runApp(const child: MyApp());
 }
 ```
 Then in the UI you can just call:
@@ -72,7 +71,7 @@ Then in the UI you can just call:
 locator<NavigationService>().push(routeWidget);
     locator<DialogService>().showCustomDialog(variant: DialogType.basic,title: 'gdgsgs',description: 'dhsdbdchdjscvadsucvad');
 
-//Note that the title and subtitle are optional.
+///Note that the title and subtitle are optional.
           
 ```
 ## Contributing
